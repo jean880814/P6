@@ -5,6 +5,18 @@ public class Person {
     private String username;
     private String password;
 
+    public static int calc(int a, int b){
+        a = 1;
+        int c = a + b;
+        Person person = new Person();
+        person.setId(c);
+        return c;
+    }
+
+    public static void main(String[] args) {
+        calc(1 , 2);
+    }
+
     public Integer getId() {
         return id;
     }
