@@ -15,6 +15,7 @@
     <modules>
         <module>p6_1</module>
         <module>p6_6</module>
+        <module>p6_2</module>
     </modules>
 
     <packaging>pom</packaging>
