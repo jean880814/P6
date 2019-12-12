@@ -12,14 +12,17 @@ import java.util.Map;
 
 public class MyDynamicProxy {
     private static final String ln = "\r\n";
-    private static Map<Class,Class> mappings = new HashMap<Class, Class>();
+    private static Map<Class, Class> mappings = new HashMap<Class, Class>();
+
     static {
-        mappings.put(int.class,Integer.class);
+        mappings.put(int.class, Integer.class);
+        mappings.put(String.class, String.class);
     }
+
     public static Object newProxyInstance(ClassLoader loader,
                                           Class<?>[] interfaces,
                                           MyInvocationHandler h) throws ClassNotFoundException {
-        try{
+        try {
             String src = genarate(interfaces);
             MyClassLoader classLoader = new MyClassLoader();
 
@@ -32,10 +35,10 @@ public class MyDynamicProxy {
 
             //3、把生成的.java文件编译成.class文件
             JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-            StandardJavaFileManager manage = compiler.getStandardFileManager(null,null,null);
+            StandardJavaFileManager manage = compiler.getStandardFileManager(null, null, null);
             Iterable iterable = manage.getJavaFileObjects(f);
 
-            JavaCompiler.CompilationTask task = compiler.getTask(null,manage,null,null,null,iterable);
+            JavaCompiler.CompilationTask task = compiler.getTask(null, manage, null, null, null, iterable);
             task.call();
             manage.close();
 
@@ -43,7 +46,7 @@ public class MyDynamicProxy {
             Constructor c = $Proxy0.getConstructor(MyInvocationHandler.class);
             f.delete();
             return c.newInstance(h);
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -99,24 +102,28 @@ public class MyDynamicProxy {
         return String.valueOf(chars);
     }
 
-    private static String getReturnEmptyCode(Class<?> returnClass){
-        if(mappings.containsKey(returnClass)){
-            return "return 0;";
-        }else if(returnClass == void.class){
+    private static String getReturnEmptyCode(Class<?> returnClass) {
+        if (mappings.containsKey(returnClass)) {
+            if (returnClass != String.class) {
+                return "return 0;";
+            } else {
+                return "return \"\";";
+            }
+        } else if (returnClass == void.class) {
             return "";
-        }else {
+        } else {
             return "return null;";
         }
     }
 
-    private static String getCaseCode(String code,Class<?> returnClass){
-        if(mappings.containsKey(returnClass)){
-            return "((" + mappings.get(returnClass).getName() +  ")" + code + ")." + returnClass.getSimpleName() + "Value()";
+    private static String getCaseCode(String code, Class<?> returnClass) {
+        if (mappings.containsKey(returnClass)) {
+            return returnClass == String.class ? "(" + mappings.get(returnClass).getName() + ")" + code : "((" + mappings.get(returnClass).getName() + ")" + code + ")." + returnClass.getSimpleName() + "Value()";
         }
         return code;
     }
 
-    private static boolean hasReturnValue(Class<?> clazz){
+    private static boolean hasReturnValue(Class<?> clazz) {
         return clazz != void.class;
     }
 }
