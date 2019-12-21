@@ -13,6 +13,15 @@
     <name>p6_1</name>
     <description>study project for p6_1</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>28.0-jre</version>
+        </dependency>
+
+    </dependencies>
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
