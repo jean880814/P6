@@ -6,7 +6,7 @@
     <display-name>My Web Application</display-name>
     <servlet>
         <servlet-name>mymvc</servlet-name>
-        <servlet-class>com.study.p6_2.p62_2.mvcframework.v2.MyDispatcherServlet</servlet-class>
+        <servlet-class>com.study.p6_2.p62_2.framework.web.servlet.MyDispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>application.properties</param-value>
