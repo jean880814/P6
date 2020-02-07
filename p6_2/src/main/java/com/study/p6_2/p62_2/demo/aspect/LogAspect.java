@@ -34,4 +34,24 @@ public class LogAspect {
                 "\nThrows:" + ex.getMessage());
     }
 
+    public Object around(MyJoinPoint joinPoint){
+        Object returnVal = null;
+        log.info("环绕通知前置!!!" +
+                "\nTargetObject:" +  joinPoint.getThis() +
+                "\nArgs:" + Arrays.toString(joinPoint.getArguments()));
+        try {
+            returnVal = joinPoint.proceed();
+            log.info("环绕通知返回" + returnVal);
+        } catch (Throwable ex) {
+            log.info("出现异常" +
+                    "\nTargetObject:" +  joinPoint.getThis() +
+                    "\nArgs:" + Arrays.toString(joinPoint.getArguments()) +
+                    "\nThrows:" + ex.getMessage());
+        }
+        log.info("环绕通知后置!!!" +
+                "\nTargetObject:" +  joinPoint.getThis() +
+                "\nArgs:" + Arrays.toString(joinPoint.getArguments()));
+        return returnVal;
+    }
+
 }

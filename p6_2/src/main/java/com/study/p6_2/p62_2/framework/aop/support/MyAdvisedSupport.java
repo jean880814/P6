@@ -2,6 +2,7 @@ package com.study.p6_2.p62_2.framework.aop.support;
 
 import com.study.p6_2.p62_2.framework.aop.aspect.MyAfterReturningAdviceInterceptor;
 import com.study.p6_2.p62_2.framework.aop.aspect.MyAfterThrowingAdviceInterceptor;
+import com.study.p6_2.p62_2.framework.aop.aspect.MyAroundAdviceInterceptor;
 import com.study.p6_2.p62_2.framework.aop.aspect.MyMethodBeforeAdviceInterceptor;
 import com.study.p6_2.p62_2.framework.aop.config.MyAopConfig;
 import org.springframework.util.StringUtils;
@@ -59,6 +60,9 @@ public class MyAdvisedSupport {
                     }
                     if (!StringUtils.isEmpty(config.getAspectAfterThrow())) {
                         chain.add(new MyAfterThrowingAdviceInterceptor(aspectMethods.get(config.getAspectAfterThrow()), aspectClass.newInstance()));
+                    }
+                    if (!StringUtils.isEmpty(config.getAspectAround())) {
+                        chain.add(new MyAroundAdviceInterceptor(aspectMethods.get(config.getAspectAround()), aspectClass.newInstance()));
                     }
                     methodCache.put(m, chain);
                 }

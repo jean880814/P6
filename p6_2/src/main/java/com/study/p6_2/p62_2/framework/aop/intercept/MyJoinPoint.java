@@ -13,4 +13,6 @@ public interface MyJoinPoint {
     void setUserAttribute(String key, Object value);
 
     Object getUserAttribute(String key);
+
+    Object proceed() throws Throwable;
 }
