@@ -1,13 +1,13 @@
-package com.study.p6_1.p61_1_1;
+package com.study.p6_1.factory_pattern;
 
-import com.study.p6_1.p61_1_1.abstractfactory.IBenzCarFactory;
-import com.study.p6_1.p61_1_1.abstractfactory.ICarFactory;
-import com.study.p6_1.p61_1_1.car.BMWCar;
-import com.study.p6_1.p61_1_1.car.BenzCar;
-import com.study.p6_1.p61_1_1.factorymethod.IBMWCar;
-import com.study.p6_1.p61_1_1.factorymethod.IBenzCar;
-import com.study.p6_1.p61_1_1.factorymethod.ICar;
-import com.study.p6_1.p61_1_1.simplefactory.CarBeanFactory;
+import com.study.p6_1.factory_pattern.abstractfactory.IBenzCarFactory;
+import com.study.p6_1.factory_pattern.abstractfactory.ICarFactory;
+import com.study.p6_1.factory_pattern.car.BMWCar;
+import com.study.p6_1.factory_pattern.car.BenzCar;
+import com.study.p6_1.factory_pattern.factorymethod.IBMWCar;
+import com.study.p6_1.factory_pattern.factorymethod.IBenzCar;
+import com.study.p6_1.factory_pattern.factorymethod.ICar;
+import com.study.p6_1.factory_pattern.simplefactory.CarBeanFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

@@ -1,4 +1,4 @@
-package com.study.p6_1.p61_1_1.car;
+package com.study.p6_1.factory_pattern.car;
 
 public class BenzCar implements Car {
 

@@ -1,6 +1,6 @@
-package com.study.p6_1.p61_1_1;
+package com.study.p6_1.factory_pattern;
 
-import com.study.p6_1.p61_1_1.car.Car;
+import com.study.p6_1.factory_pattern.car.Car;
 import com.study.p6_1.P61_2_1to1_2_2.EnumSingleton;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

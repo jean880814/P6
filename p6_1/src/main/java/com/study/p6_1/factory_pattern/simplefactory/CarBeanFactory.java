@@ -1,6 +1,6 @@
-package com.study.p6_1.p61_1_1.simplefactory;
+package com.study.p6_1.factory_pattern.simplefactory;
 
-import com.study.p6_1.p61_1_1.car.Car;
+import com.study.p6_1.factory_pattern.car.Car;
 
 public class CarBeanFactory {
 
