@@ -1,7 +1,11 @@
 package com.study.p6_1.prototype_pattern;
 
+import lombok.Data;
+import net.sf.json.JSONObject;
+
 import java.io.*;
 
+@Data
 public class UserBankAccount extends Bank implements Cloneable, Serializable {
     private String username;
     private UserAccountDetail userAccountDetail;
@@ -11,20 +15,45 @@ public class UserBankAccount extends Bank implements Cloneable, Serializable {
         return this.deepClone();
     }
 
-    private UserBankAccount deepClone() {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+    public UserBankAccount jsonClone(){
+        return (UserBankAccount) JSONObject.toBean(JSONObject.fromObject(this), UserBankAccount.class);
+    }
+
+    public UserBankAccount deepClone()  {
+        ByteArrayOutputStream byteArrayOutputStream = null;
+        ObjectOutputStream objectOutputStream = null;
+        ByteArrayInputStream byteArrayInputStream = null;
+        ObjectInputStream objectInputStream = null;
         try {
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+            byteArrayOutputStream = new ByteArrayOutputStream();
+            objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
             objectOutputStream.writeObject(this);
 
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-            ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+            byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+            objectInputStream = new ObjectInputStream(byteArrayInputStream);
 
             UserBankAccount obj = (UserBankAccount) objectInputStream.readObject();
             return obj;
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
             return null;
+        } finally {
+            try {
+                if (byteArrayOutputStream != null) {
+                    byteArrayOutputStream.close();
+                }
+                if (objectOutputStream != null) {
+                    objectOutputStream.close();
+                }
+                if (byteArrayInputStream != null) {
+                    byteArrayInputStream.close();
+                }
+                if (objectInputStream != null) {
+                    objectInputStream.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -35,19 +64,20 @@ public class UserBankAccount extends Bank implements Cloneable, Serializable {
         return newAccount;
     }
 
-    public String getUsername() {
-        return username;
+    public static void main(String[] args) throws CloneNotSupportedException {
+        UserBankAccount account = new UserBankAccount();
+        UserAccountDetail userAccountDetail = new UserAccountDetail();
+        userAccountDetail.setAccount("aaa");
+        userAccountDetail.setType("1");
+        account.setUsername("Jean");
+        account.setUserAccountDetail(userAccountDetail);
+
+        UserBankAccount lowClone = account.jsonClone();
+        lowClone.getUserAccountDetail().setAccount("bbb");
+
+        System.out.println(account == lowClone);
+        System.out.println("account.getuserAccountDetail" + account.getUserAccountDetail());
+        System.out.println("lowClone.getuserAccountDetail" + lowClone.getUserAccountDetail());
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public UserAccountDetail getUserAccountDetail() {
-        return userAccountDetail;
-    }
-
-    public void setUserAccountDetail(UserAccountDetail userAccountDetail) {
-        this.userAccountDetail = userAccountDetail;
-    }
 }

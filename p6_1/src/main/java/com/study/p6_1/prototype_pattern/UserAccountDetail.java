@@ -1,28 +1,19 @@
 package com.study.p6_1.prototype_pattern;
 
-public class UserAccountDetail {
+import lombok.Data;
+
+import java.io.Serializable;
+
+@Data
+public class UserAccountDetail implements Serializable {
     private String account;
     private String type;
 
-    public UserAccountDetail() {
-
+    @Override
+    public String toString() {
+        return "UserAccountDetail{" +
+                "account='" + account + '\'' +
+                ", type='" + type + '\'' +
+                '}';
     }
-
-    public String getAccount() {
-        return account;
-    }
-
-    public void setAccount(String account) {
-        this.account = account;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-
 }
