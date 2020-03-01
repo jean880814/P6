@@ -9,6 +9,7 @@ public class UserAccountDetail implements Serializable {
     private String account;
     private String type;
 
+
     @Override
     public String toString() {
         return "UserAccountDetail{" +
