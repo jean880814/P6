@@ -54,7 +54,7 @@ public class MyDynamicProxy {
 
     private static String genarate(Class<?>[] interfaces) {
         StringBuffer sb = new StringBuffer();
-        sb.append(MyDynamicProxy.class.getPackage() + ln);
+        sb.append(MyDynamicProxy.class.getPackage() + ";" + ln);
         sb.append("import " + interfaces[0].getName() + ";" + ln);
         sb.append("import java.lang.reflect.*;" + ln);
         sb.append("public class $Proxy0 implements " + interfaces[0].getSimpleName() + "{" + ln);
