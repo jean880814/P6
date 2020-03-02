@@ -8,5 +8,6 @@ public class MyDynamicProxyTest {
         MyDynamicProxyHandler m = new MyDynamicProxyHandler();
         Car car = (Car) m.getInstance(new BenzCar());
         car.drive();
+
     }
 }
