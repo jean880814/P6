@@ -21,7 +21,7 @@ public class MyBlockingQueue<T> {
 
     public MyBlockingQueue(int capacity) {
         fullsize = capacity;
-        this.q = new ArrayList<T>(capacity);
+        this.q = new ArrayList<T>();
     }
 
     public T take() {
