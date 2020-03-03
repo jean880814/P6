@@ -32,9 +32,8 @@ public class MyBlockingQueue<T> {
             }
             try {
                 size--;
-                return q.get(0);
+                return q.remove(0);
             } finally {
-                q.remove(0);
                 System.out.println(Thread.currentThread().getName() + " after take q = " + q);
                 fullCondition.signal();
             }
