@@ -23,6 +23,7 @@ public class ContainerSingleton {
         return obj.get();
     }
 
+
     public static Object getInstance(Class<?> clazz) throws IllegalAccessException, InstantiationException {
         synchronized (omap) {
             if (!omap.containsKey(clazz)) {
