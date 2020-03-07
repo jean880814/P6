@@ -17,6 +17,7 @@ public class PayProcessor implements Runnable,IProcessor{
     public void run() {
         while (!isFinished) {
             try {
+
                 DoProcessor processor = queue.take();
                 System.out.println("pay order");
                 if(nextProcessor!=null) nextProcessor.processor(processor);
