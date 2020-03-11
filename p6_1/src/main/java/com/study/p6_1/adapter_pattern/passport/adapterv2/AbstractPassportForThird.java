@@ -3,7 +3,7 @@ package com.study.p6_1.adapter_pattern.passport.adapterv2;
 import com.study.p6_1.adapter_pattern.passport.ResultMsg;
 import com.study.p6_1.adapter_pattern.passport.adapterv2.adapters.ILoginAdapter;
 
-public abstract class PassportForThirdBase  implements IPassportForThird {
+public abstract class AbstractPassportForThird implements IPassportForThird {
     protected ResultMsg processLogin(String id){
         try {
             ILoginAdapter adapter = adapter();
