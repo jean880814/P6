@@ -14,8 +14,9 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>p6_1</module>
-        <module>p6_6</module>
         <module>p6_2</module>
+        <module>p6_3</module>
+        <module>p6_6</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -25,7 +26,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
