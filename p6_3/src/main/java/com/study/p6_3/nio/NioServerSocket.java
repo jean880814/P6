@@ -51,7 +51,7 @@ public class NioServerSocket {
             SocketChannel accept = serverSocketChannel.accept();
             accept.configureBlocking(false);
             System.out.println("连接的地址:" + accept.getRemoteAddress() );
-            key = accept.register(selector, SelectionKey.OP_READ);
+            key.interestOps(SelectionKey.OP_READ);
         } else if(key.isReadable()) {
             SocketChannel socketChannel = (SocketChannel) key.channel();
             int len = socketChannel.read(buffer);
@@ -59,8 +59,9 @@ public class NioServerSocket {
                 buffer.flip();
                 String content = new String(buffer.array(), 0, len);
                 System.out.println("接收到来着" + socketChannel.getRemoteAddress() + "的信息 ：" +content);
-                key = socketChannel.register(selector, SelectionKey.OP_WRITE);
+                key.interestOps(SelectionKey.OP_WRITE);
                 key.attach(content);
+                buffer.clear();
             }
         } else if (key.isWritable()) {
             SocketChannel socketChannel = (SocketChannel) key.channel();
