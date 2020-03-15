@@ -1,9 +1,9 @@
 package com.study.p6_1.adapter_pattern;
 
-import com.study.p6_1.strategy_pattern.MessageSender;
+import com.study.p6_1.strategy_pattern.MessageSenderStrategy;
 import com.study.p6_1.strategy_pattern.MsgResult;
 
-public class MessageSenderAdapter extends MessageSender {
+public class MessageSenderAdapter extends MessageSenderStrategy {
     private Long userId;
     private String message;
 
