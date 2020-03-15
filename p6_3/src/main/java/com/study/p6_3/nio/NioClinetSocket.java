@@ -21,9 +21,6 @@ public class NioClinetSocket {
             clntChan.configureBlocking(false);
             clntChan.connect(new InetSocketAddress("localhost", 8080));
             clntChan.register(selector, SelectionKey.OP_READ);
-            while (!clntChan.finishConnect()) {
-
-            }
             System.out.println("已连接！");
         } catch (Exception e) {
             e.printStackTrace();

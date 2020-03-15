@@ -2,12 +2,14 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="p6_6" />
         <module name="P6_1" />
+        <module name="p6_3" />
         <module name="p6_2" />
       </profile>
     </annotationProcessing>
@@ -16,7 +18,8 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="P6" options="-parameters" />
       <module name="P6_1" options="-parameters" />
-      <module name="p6_2" options="-parameters" />
+      <module name="p6_2" options="-parameters -verbose -bootclasspath D:/tools/Java/jdk1.8.0_221/jre/lib/rt.jar" />
+      <module name="p6_3" options="-parameters" />
       <module name="p6_6" options="-parameters" />
     </option>
   </component>
