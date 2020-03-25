@@ -17,6 +17,7 @@
         <module>p6_2</module>
         <module>p6_3</module>
         <module>p6_6</module>
+        <module>format-spring-boot-starter</module>
     </modules>
 
     <packaging>pom</packaging>
