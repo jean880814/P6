@@ -16,6 +16,5 @@ public class FormatTemplate {
         stringBuilder.append("properties:").append(processor.format(formatProperties.getInfo())).append("<br/>");
         stringBuilder.append("Obj format result:").append(processor.format(obj)).append("<br/>");
         return stringBuilder.toString();
-
     }
 }
