@@ -24,7 +24,7 @@ Date.prototype.format = function(format){
 $(document).ready(function(){
 	window.CHAT = {
 		//保存服务器端WebSocket的请求地址
-		serverAddr:"ws://localhost:10086/im",
+		serverAddr:"ws://192.168.31.235:10086/im",
 		//保存用户输入的昵称
 		nickname:null,
 		//保存浏览器socket对象
@@ -207,9 +207,11 @@ $(document).ready(function(){
 			    	appendToPanel(e.data);
 			    };
 			    CHAT.socket.onopen = function(e) {
+			    	alert("websoket连接" + e);
 			    	CHAT.socket.send("[LOGIN][" + new Date().getTime() +"][" + nickname + "][WebSocket]");
 			    };
 			    CHAT.socket.onclose = function(e) {
+			    	alert("连接失败" + e);
 			        appendToPanel("[SYSTEM][" + new Date().getTime() + "][0] - 服务器关闭,暂不能聊天!");
 			    };
 			} else {
