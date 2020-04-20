@@ -1,6 +1,8 @@
 package com.study.p6_2.p62_2.demo.service.impl;
 
+import com.study.p6_2.p62_2.demo.service.IDemoService;
 import com.study.p6_2.p62_2.demo.service.IQueryService;
+import com.study.p6_2.p62_2.mvcframework.annotation.MyAutowired;
 import com.study.p6_2.p62_2.mvcframework.annotation.MyService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,6 +17,8 @@ import java.util.Date;
 @MyService
 @Slf4j
 public class QueryService implements IQueryService {
+	@MyAutowired
+	private IDemoService iDemoService;
 
 	/**
 	 * 查询
