@@ -1,0 +1,8 @@
+com\study\testspringbootstarter\service\FormatTemplate.class
+com\study\testspringbootstarter\TestSpringBootStarterApplication.class
+com\study\testspringbootstarter\config\FormatConfig.class
+com\study\testspringbootstarter\config\FormatProperties.class
+com\study\testspringbootstarter\service\JsonProcessor.class
+com\study\testspringbootstarter\service\MyProcessor.class
+com\study\testspringbootstarter\service\StringProcessor.class
+META-INF\spring-configuration-metadata.json

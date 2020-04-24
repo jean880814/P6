@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "jean.format",
+      "type": "com.study.testspringbootstarter.config.FormatProperties",
+      "sourceType": "com.study.testspringbootstarter.config.FormatProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "jean.format.info",
+      "type": "java.util.Map<java.lang.String,java.lang.Object>",
+      "sourceType": "com.study.testspringbootstarter.config.FormatProperties"
+    }
+  ],
+  "hints": []
+}
