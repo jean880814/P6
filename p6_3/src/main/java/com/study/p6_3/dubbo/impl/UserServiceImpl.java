@@ -6,11 +6,13 @@ import org.apache.dubbo.config.annotation.Service;
 
 @Service
 public class UserServiceImpl extends AbstractServiceImpl implements UserService {
+    @Override
     public String getUser(String id) {
         System.out.println("getUser + " + id);
         return "hello jean";
     }
 
+    @Override
     public void saveUser(User user) {
         System.out.println(user);
     }

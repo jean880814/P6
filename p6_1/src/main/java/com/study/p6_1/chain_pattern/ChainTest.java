@@ -6,7 +6,7 @@ public class ChainTest {
         builder.add(new ValidHandler()).add(new LoginHandler()).add(new AuthHandler());
         User user = new User();
         user.setUserName("jean");
-        user.setPassWord("");
+        user.setPassWord("1233");
         builder.build().process(user);
     }
 }
