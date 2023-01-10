@@ -1,7 +1,7 @@
 package com.study.p6_1.prototype_pattern;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
-import net.sf.json.JSONObject;
 
 import java.io.*;
 
@@ -16,7 +16,7 @@ public class UserBankAccount extends Bank implements Cloneable, Serializable {
     }
 
     public UserBankAccount jsonClone(){
-        return (UserBankAccount) JSONObject.toBean(JSONObject.fromObject(this), UserBankAccount.class);
+        return JSONObject.parseObject(JSONObject.toJSONString(this), UserBankAccount.class);
     }
 
     public UserBankAccount deepClone()  {
